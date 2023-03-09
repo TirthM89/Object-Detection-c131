@@ -16,7 +16,8 @@ function setup() {
 
 function start() {
     objectDetector = ml5.objectDetector("cocossd", modelLoaded);
-    document.getElementById("status").innerHTML = "Status: Detecting Objects" ;    
+    document.getElementById("status").innerHTML = "Status: Detecting Objects" ; 
+    console.log("START is Started");
 }
 
 function modelLoaded() {
@@ -42,6 +43,7 @@ function draw() {
         b = random(255);
         for (let i = 0; i < objects.length; i++) {
             document.getElementById("status").innerHTML = "Status: Object Detected";
+            document.getElementById("noo").innerHTML = "Number of objects detected are "+objects.length;
             fill(r,g,b);
             percent = Math.floor(objects[i].confidence*100);
             text(objects[i].label+" "+percent +"%",objects[i].x+4,objects[i].y+12);
